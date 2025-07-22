@@ -1,10 +1,9 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useCountry } from "../context/CountryContext";
 
 function MainServices({ data }) {
-
-  const {country}= useCountry()
+  const { country } = useCountry();
   return (
     <div className="bg-gray-900 text-white py-12 px-4">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center underline text-violet-400 mb-12">

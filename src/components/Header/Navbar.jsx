@@ -50,18 +50,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Country Selector */}
-      <div className="w-full bg-[#141313] py-2 px-4 text-white flex justify-end md:justify-end">
-        <select
-          value={country}
-          onChange={handleCountryChange}
-          className="bg-[#222] border border-gray-600 text-white px-3 py-1 rounded focus:outline-none"
-        >
-          <option value="india">India</option>
-          <option value="au">Australia</option>
-        </select>
-      </div>
-
       {/* Main Navbar */}
       <div className="flex justify-between items-center flex-wrap bg-[#141313]">
         <div className="flex items-center w-2/5 gap-4 ml-[4%]">
@@ -83,7 +71,9 @@ const Navbar = () => {
         <nav className="w-2/5 justify-end hidden md:flex">
           <ul className="flex gap-5 text-[1.2rem] pr-[10%] text-white">
             <li>
-              <Link href={makePath("/")} className="hover:text-orange-400">HOME</Link>
+              <Link href={makePath("/")} className="hover:text-orange-400">
+                HOME
+              </Link>
             </li>
             <li>
               <div
@@ -100,13 +90,19 @@ const Navbar = () => {
 
                 <div
                   className={`absolute top-full left-0 mt-2 bg-violet-200 border border-gray-300 rounded-md shadow-lg z-50 w-64 transition-all duration-200 ${
-                    showServices ? "opacity-100 visible scale-100" : "opacity-0 invisible scale-95"
+                    showServices
+                      ? "opacity-100 visible scale-100"
+                      : "opacity-0 invisible scale-95"
                   }`}
                 >
                   {services.map((service, index) => (
                     <Link
                       key={index}
-                      href={makePath(`/services/${service.toLowerCase().replace(/\s+/g, "-")}`)}
+                      href={makePath(
+                        `/services/${service
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`
+                      )}
                       className="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-blue-600 hover:text-white transition"
                     >
                       {service}
@@ -116,13 +112,50 @@ const Navbar = () => {
               </div>
             </li>
             <li>
-              <Link href={makePath("/blog")} className="hover:text-orange-400">BLOG</Link>
+              <Link href={makePath("/blog")} className="hover:text-orange-400">
+                BLOG
+              </Link>
             </li>
             <li>
-              <Link href={makePath("/#partners")} className="hover:text-orange-400">PARTNERS</Link>
+              <Link
+                href={makePath("/#partners")}
+                className="hover:text-orange-400"
+              >
+                PARTNERS
+              </Link>
             </li>
             <li>
-              <Link href={makePath("/contact")} className="hover:text-orange-400">CONTACT</Link>
+              <Link
+                href={makePath("/contact")}
+                className="hover:text-orange-400"
+              >
+                CONTACT
+              </Link>
+            </li>
+            <li>
+              <div className="flex items-center gap-2 text-white justify-center">
+                <button
+                  onClick={() =>
+                    handleCountryChange({
+                      target: { value: country === "au" ? "india" : "au" },
+                    })
+                  }
+                  className="flex items-center gap-2 focus:outline-none"
+                >
+                  <img
+                    src={
+                      country === "au"
+                        ? "/images/australia.webp"
+                        : "/images/india.webp"
+                    }
+                    alt={country}
+                    className="w-6 h-6 rounded-full"
+                  />
+                  <span className="text-sm font-semibold">
+                    {country === "au" ? "AU" : "IN"}
+                  </span>
+                </button>
+              </div>
             </li>
           </ul>
         </nav>
@@ -139,7 +172,13 @@ const Navbar = () => {
           <nav className="flex flex-col items-center py-6 space-y-4">
             <ul className="text-white text-lg font-semibold space-y-4 w-full px-6">
               <li>
-                <Link href={makePath("/")} onClick={handleLinkClick} className="hover:text-orange-400 block">Home</Link>
+                <Link
+                  href={makePath("/")}
+                  onClick={handleLinkClick}
+                  className="hover:text-orange-400 block"
+                >
+                  Home
+                </Link>
               </li>
               <li>
                 <div className="flex flex-col gap-2">
@@ -158,7 +197,13 @@ const Navbar = () => {
                       }}
                       aria-label="Toggle services dropdown"
                     >
-                      <span className={`transform transition-transform duration-300 ${showServices ? "rotate-180" : "rotate-0"}`}>▼</span>
+                      <span
+                        className={`transform transition-transform duration-300 ${
+                          showServices ? "rotate-180" : "rotate-0"
+                        }`}
+                      >
+                        ▼
+                      </span>
                     </button>
                   </div>
 
@@ -167,7 +212,11 @@ const Navbar = () => {
                       {services.map((service, index) => (
                         <li key={index}>
                           <Link
-                            href={makePath(`/services/${service.toLowerCase().replace(/\s+/g, "-")}`)}
+                            href={makePath(
+                              `/services/${service
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`
+                            )}
                             onClick={handleLinkClick}
                             className="block hover:text-orange-400"
                           >
@@ -180,13 +229,31 @@ const Navbar = () => {
                 </div>
               </li>
               <li>
-                <Link href={makePath("/#partners")} onClick={handleLinkClick} className="hover:text-orange-400 block">Partners</Link>
+                <Link
+                  href={makePath("/#partners")}
+                  onClick={handleLinkClick}
+                  className="hover:text-orange-400 block"
+                >
+                  Partners
+                </Link>
               </li>
               <li>
-                <Link href={makePath("/blog")} onClick={handleLinkClick} className="hover:text-orange-400 block">Blog</Link>
+                <Link
+                  href={makePath("/blog")}
+                  onClick={handleLinkClick}
+                  className="hover:text-orange-400 block"
+                >
+                  Blog
+                </Link>
               </li>
               <li>
-                <Link href={makePath("/contact")} onClick={handleLinkClick} className="hover:text-orange-400 block">Contact Us</Link>
+                <Link
+                  href={makePath("/contact")}
+                  onClick={handleLinkClick}
+                  className="hover:text-orange-400 block"
+                >
+                  Contact Us
+                </Link>
               </li>
               <li className="pt-2">
                 <select
