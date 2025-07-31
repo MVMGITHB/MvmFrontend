@@ -9,7 +9,7 @@ function Idfc() {
             benifirst: "/images/idfc.jpg",
             benisec: "/images/idfc.jpg",
             keydesc: `IDFC FIRST Bank credit cards combine lifelong free membership with excellent benefits like low interest rates, generous reward points, and interest-free ATM withdrawals. Whether you're shopping, dining, or traveling, earn rewards and enjoy perks without worrying about fees.`,
-            site: `https://www.idfcfirstbank.com/credit-card`,
+            site: `https://spectrum.gotrackier.com/click?campaign_id=384&pub_id=945`,
             pros: [
                 "No annual or joining fees – lifetime free",
                 "Interest rates starting as low as 8.5% p.a.",
