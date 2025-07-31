@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useCountry } from "../context/CountryContext";
- 
+
 const workData = [
   {
     image: "/images/bajaj.webp",
@@ -21,6 +21,14 @@ const workData = [
     description:
       "With Tata Neu HDFC credit card, save up to 10% across all our partner brands. And enjoy unmatched privileges powered by RuPay/Visa.",
   },
+  {
+    image: "/images/idfclogo.webp",
+    title: "IDFC Credit Card",
+    link: "/idfc",
+    description:
+      "Lifetime-free IDFC credit card with low interest, 10X rewards on milestone spends & unmatched privileges across categories.",
+  }
+  ,
   {
     image: "/images/cars.webp",
     title: "Buy/Sell Used Cars",
@@ -186,9 +194,8 @@ export default function WorkCarousel() {
                 </div>
                 <div className="pt-4">
                   <Link
-                    href={`${country === "india" ? "" : "/au"}${
-                      work.link || "/"
-                    }`}
+                    href={`${country === "india" ? "" : "/au"}${work.link || "/"
+                      }`}
                   >
                     <button className="bg-blue-400 text-black cursor-pointer py-2 px-6 rounded hover:bg-blue-500 transition duration-300">
                       Explore Now
