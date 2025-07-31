@@ -5,7 +5,7 @@ function Idfc() {
         {
             image: "/images/idfclogo2.png",
             offer: "Lifetime free credit card with unbeatable rewards",
-            logo: "/images/idfcBanner.jpg",
+            logo: "/images/idfcbanner.webp",
             benifirst: "/images/idfc.jpg",
             benisec: "/images/idfc.jpg",
             keydesc: `IDFC FIRST Bank credit cards combine lifelong free membership with excellent benefits like low interest rates, generous reward points, and interest-free ATM withdrawals. Whether you're shopping, dining, or traveling, earn rewards and enjoy perks without worrying about fees.`,
