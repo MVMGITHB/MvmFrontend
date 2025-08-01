@@ -5,7 +5,7 @@ function BajajFinserv() {
     { 
       image: "/images/bajaj.webp",
       offer: "Instant personal loans up to 50 lakhs",
-      logo: "/images/TataNeu (4).png",
+      logo: "/images/BajajFinserv.png",
       keydesc: ` With Bajaj Finserv, you can get instant personal loans and also online.-
 
 The affordable interest rates start from only 11% per annum, and allow clients to avail loans up to 50 lakh. Customers can also choose from Bajaj Markets’ vast range of lending partners as per their preferences. With this personal loan, manage all your personal finance needs without any worries.   
