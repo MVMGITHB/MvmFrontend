@@ -6,8 +6,8 @@ function TataNeu() {
       image: "/images/tata.webp",
       offer: "Quick and contactless transactions every time",
       logo: "/images/TataNeu (4).png",
-      benifirst: '/images/TATAneu (3).png',
-      benisec: '/images/TATAneu (3).png',
+      benifirst: '/images/TATAneu (5).png',
+      benisec: '/images/TATAneu (5).png',
       keydesc: `Tata Neu’s credit card is a versatile choice, as it covers expenses among most of Tata Neu’s partner brands.-
 With perks like contactless payment and interest free credit period, it offers convenience and flexibility for users. Additionally, cardholders can earn rewards points on their purchases which can be redeemed while shopping. So, if you want value for money, get this card. 
 `,
