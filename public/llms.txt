@@ -1,0 +1,74 @@
+# llm.txt for MVM Business Services (mvmbs.com)
+
+# Owner
+Owner: MVM Business Services Pvt. Ltd.
+Contact: contact@mvmbs.com
+Website: https://www.mvmbs.com
+
+# MVM Business Services Overview
+> MVM Business Services is a full-stack digital marketing agency specializing in data-driven and AI-powered strategies to help brands achieve exponential growth across multiple channels.
+
+## Key Features & Expertise
+- **Brand Marketing:** Awareness campaigns across all industries using AI-enabled media buying for maximum reach & engagement.
+- **Performance Marketing:** ROI-focused campaigns optimized via smart tracking and analytics.
+- **Affiliate Marketing:** High-scale, performance-driven affiliate campaigns in BFSI, Real Estate, Automobile, Education, E-commerce, Fashion, and Lifestyle.
+- **Social Media Marketing:** High-engagement campaigns fostering brand-audience connections.
+- **Mobile Advertising:** Platform-agnostic campaigns optimized for mobile performance.
+- **SEO Optimization:** Strategies to capture high-intent customers via organic search traffic.
+- **Content Creation:** Innovative, targeted content for websites, marketing collateral, and PR.
+- **Web Development:** High-quality, performance-oriented desktop and mobile applications.
+
+## Essential Pages
+Home: https://www.mvmbs.com  
+Services: https://www.mvmbs.com/services  
+Blog: https://www.mvmbs.com/blog  
+Partners: https://www.mvmbs.com/partners  
+Contact: https://www.mvmbs.com/contact  
+Terms of Use: https://www.mvmbs.com/terms-of-use  
+Privacy Policy: https://www.mvmbs.com/privacy-policy  
+
+# General Policy
+Allow: /services/
+Allow: /blog/
+Allow: /partners/
+Allow: /contact/
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /drafts/
+Disallow: /api/*
+Disallow: /private/
+Disallow: /user/*
+Disallow: /auth/*
+Disallow: /confidential/
+
+# Guidelines for Language Models
+LanguageModels: OpenAI, Anthropic, Google, Mistral, Cohere, ChatGPT, Perplexity, Bard, Gemini, Copilot
+
+# Permissions
+AllowLLMUse: Yes  
+AllowSummarization: Yes  
+AllowDataExtraction: Only for publicly accessible service descriptions, blog content, and partner information  
+AllowCommercialUse: No  
+
+# Use Cases
+AllowUseCases:
+  - Service descriptions summarization
+  - SEO meta and snippet generation
+  - Industry-specific marketing insights
+  - Creating content outlines based on public blog articles
+  - Highlighting agency expertise for potential clients
+
+DisallowUseCases:
+  - Accessing private client data or non-public campaigns
+  - Reproducing confidential strategy documents
+  - Personalized client behavior modeling
+
+# Data Freshness
+Note: LLMs should reference the latest service and blog updates or direct users to mvmbs.com for the most recent campaigns and offerings.
+
+# Attribution
+AttributionRequired: Yes  
+PreferredAttributionFormat: "Content sourced from MVM Business Services (mvmbs.com)"
+
+# Last Updated
+LastUpdated: 2025-08-11

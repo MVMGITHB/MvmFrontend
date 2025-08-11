@@ -20,5 +20,17 @@ Allow: /
 # Delay crawling to prevent server overload
 Crawl-delay: 2
 
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: CCBot
+Allow: /
+
 # Sitemap location
 Sitemap: https://mvmbs.com/sitemap.xml
+Sitemap: https://mvmbs.com/llms.txt
