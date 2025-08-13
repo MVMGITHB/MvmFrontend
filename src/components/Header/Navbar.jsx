@@ -63,7 +63,7 @@ const Navbar = () => {
                 className="w-24 h-24 object-contain"
               />
               <p className="text-[1.2rem] font-bold leading-tight text-white">
-                MVM <br /> Business <br /> Services
+               <span className=" text-orange-300">MVM </span> <br /> <span>Business</span> <br />  <span className=" text-green-400">Services</span>
               </p>
             </div>
           </Link>
