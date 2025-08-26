@@ -12,7 +12,6 @@ const Navbar = () => {
   const { country, setCountry } = useCountry();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-
   const [isOpen, setIsOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
 
@@ -63,7 +62,9 @@ const Navbar = () => {
                 className="w-24 h-24 object-contain"
               />
               <p className="text-[1.2rem] font-bold leading-tight text-white">
-               <span className=" text-orange-300">MVM </span> <br /> <span>Business</span> <br />  <span className=" text-green-400">Services</span>
+                <span className=" text-white">MVM </span> <br />{" "}
+                <span>Business</span> <br />{" "}
+                <span className=" text-white">Services</span>
               </p>
             </div>
           </Link>
@@ -135,55 +136,62 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="relative">
-  <div className="flex items-center gap-2 text-white justify-center">
-    <button
-      onClick={() => setDropdownOpen((prev) => !prev)}
-      className="flex items-center gap-2 focus:outline-none"
-    >
-      <img
-        src={
-          country === "au"
-            ? "/images/australia.webp"
-            : "/images/india.webp"
-        }
-        alt={country}
-        className="w-6 h-6 rounded-full"
-      />
-      <span className="text-sm font-semibold">
-        {country === "au" ? "AU" : "IN"}
-      </span>
-    </button>
+              <div className="flex items-center gap-2 text-white justify-center">
+                <button
+                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  className="flex items-center gap-2 focus:outline-none"
+                >
+                  <img
+                    src={
+                      country === "au"
+                        ? "/images/australia.webp"
+                        : "/images/india.webp"
+                    }
+                    alt={country}
+                    className="w-6 h-6 rounded-full"
+                  />
+                  <span className="text-sm font-semibold">
+                    {country === "au" ? "AU" : "IN"}
+                  </span>
+                </button>
 
-    {dropdownOpen && (
-      <ul className="absolute top-full mt-2   bg-[#222] border border-gray-600 rounded-md z-50 w-28 shadow">
-        {[
-          { code: "india", label: "IN", flag: "/images/india.webp" },
-          { code: "au", label: "AU", flag: "/images/australia.webp" },
-        ]
-          .filter((c) => c.code !== country)
-          .map((option) => (
-            <li
-              key={option.code}
-              className="flex items-center gap-2 px-3 py-2 text-white text-sm hover:bg-gray-700 cursor-pointer"
-              onClick={() =>
-                handleCountryChange({
-                  target: { value: option.code },
-                })
-              }
-            >
-              <img
-                src={option.flag}
-                alt={option.label}
-                className="w-5 h-5 rounded-full"
-              />
-              <span>{option.label}</span>
+                {dropdownOpen && (
+                  <ul className="absolute top-full mt-2   bg-[#222] border border-gray-600 rounded-md z-50 w-28 shadow">
+                    {[
+                      {
+                        code: "india",
+                        label: "IN",
+                        flag: "/images/india.webp",
+                      },
+                      {
+                        code: "au",
+                        label: "AU",
+                        flag: "/images/australia.webp",
+                      },
+                    ]
+                      .filter((c) => c.code !== country)
+                      .map((option) => (
+                        <li
+                          key={option.code}
+                          className="flex items-center gap-2 px-3 py-2 text-white text-sm hover:bg-gray-700 cursor-pointer"
+                          onClick={() =>
+                            handleCountryChange({
+                              target: { value: option.code },
+                            })
+                          }
+                        >
+                          <img
+                            src={option.flag}
+                            alt={option.label}
+                            className="w-5 h-5 rounded-full"
+                          />
+                          <span>{option.label}</span>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </div>
             </li>
-          ))}
-      </ul>
-    )}
-  </div>
-</li>
-
           </ul>
         </nav>
 
