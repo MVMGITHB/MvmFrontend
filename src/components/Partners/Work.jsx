@@ -1,9 +1,7 @@
 "use client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import { useCountry } from "../context/CountryContext";
 
 const workData = [
@@ -27,8 +25,7 @@ const workData = [
     link: "/idfc",
     description:
       "Lifetime-free IDFC credit card with low interest, 10X rewards on milestone spends & unmatched privileges across categories.",
-  }
-  ,
+  },
   {
     image: "/images/cars.webp",
     title: "Buy/Sell Used Cars",
@@ -122,91 +119,163 @@ const workData = [
   },
 ];
 
-const CustomPrevArrow = ({ onClick }) => (
-  <button
-    className="absolute left-0 top-1/2 ml-[-16px] transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-200"
-    onClick={onClick}
-  >
-    <FaArrowLeft className="text-black" />
-  </button>
-);
-
-const CustomNextArrow = ({ onClick }) => (
-  <button
-    className="absolute right-0 mr-[-16px] top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-200"
-    onClick={onClick}
-  >
-    <FaArrowRight className="text-black" />
-  </button>
-);
-
-export default function WorkCarousel() {
+export default function PartnerCards() {
   const { country } = useCountry();
+  const [page, setPage] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const settings = {
-    dots: false,
-    arrows: true,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+  const itemsPerPage = 4;
+  const totalPages = Math.ceil(workData.length / itemsPerPage);
+
+  // Auto change every 5s (pause on hover)
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setPage((prev) => (prev + 1) % totalPages);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [totalPages, isHovered]);
+
+  const currentItems = workData.slice(
+    page * itemsPerPage,
+    page * itemsPerPage + itemsPerPage
+  );
 
   return (
-    <div
-      id="partners"
-      className="py-10 bg-[#323336] min-h-screen text-white text-center"
-    >
-      <h2 className="text-4xl font-bold mb-6 underline">Our Partners</h2>
-      <div className="relative max-w-6xl mx-auto px-4">
-        <Slider {...settings}>
-          {workData?.map((work, index) => (
-            <div key={index} className="p-4">
-              <div className="bg-[#414247] rounded-lg p-6 h-[508px] flex flex-col transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-[#505155]">
-                <div className="bg-white overflow-hidden mb-4">
+    <section className="relative bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-20 px-6 overflow-hidden">
+      {/* Section Heading */}
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+        {/* Left Column */}
+        <div className="md:w-1/2">
+          <h2 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            Brands That Trust MVM Business Services
+          </h2>
+
+          <h3 className="text-lg font-semibold text-gray-200 mt-4">
+            Loans • Credit Cards • Insurance • E-Commerce • Automobiles
+          </h3>
+        </div>
+
+        {/* Right Column */}
+        <div className="md:w-1/2">
+          <p className="text-gray-300 leading-relaxed text-lg font-medium tracking-wide font-serif">
+            We partner with{" "}
+            <strong className="text-white font-semibold">
+              India’s leading banks, global financial institutions, e-commerce
+              giants, insurance providers,
+            </strong>{" "}
+            and{" "}
+            <strong className="text-white font-semibold">
+              automobile brands
+            </strong>{" "}
+            to bring you products and services you can trust. 🚀
+            <br />
+            <br />
+            From{" "}
+            <span className="text-purple-400 font-bold">
+              personal loans, business loans, and credit cards
+            </span>{" "}
+            💳 to{" "}
+            <span className="text-blue-400 font-bold">
+              car insurance, savings accounts, and online shopping
+            </span>{" "}
+            🛍️ — our network covers all your lifestyle and financial needs.
+            <br />
+            <br />
+            With trusted partners like{" "}
+            <strong className="text-white font-semibold">
+              Bajaj Finserv, HDFC, ICICI, SBI, Myntra, Cars24, TVS, Ola Electric
+            </strong>{" "}
+            and more, you get{" "}
+            <em className="italic text-gray-100 font-light">
+              secure, affordable, and reliable solutions
+            </em>{" "}
+            designed to empower your everyday life. 🌟
+          </p>
+        </div>
+      </div>
+
+      {/* Cards Grid with Animation */}
+      <div
+        className="max-w-7xl mx-auto"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -80 }}
+            transition={{ duration: 0.6 }}
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {currentItems.map((work, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -6 }}
+                className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-purple-500/40"
+              >
+                {/* Image */}
+                <div className="relative h-44 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden">
                   <img
                     src={work.image}
                     alt={work.title}
-                    className="w-full h-[160px] object-cover"
+                    className="object-contain max-h-28 transition-transform duration-500 group-hover:scale-110"
                   />
+                  {work.tag && (
+                    <span className="absolute top-3 left-3 text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-md">
+                      {work.tag}
+                    </span>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-30 transition"></div>
                 </div>
-                <p className="text-2xl font-bold mb-2">{work.title}</p>
-                <div className="flex-grow overflow-y-auto pr-1 text-left">
-                  <p className="text-base">{work.description}</p>
-                </div>
-                <div className="pt-4">
+
+                {/* Content */}
+                <div className="flex flex-col flex-grow p-5">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                    {work.title}
+                  </h3>
+                  <p className="text-gray-600 flex-grow line-clamp-3">
+                    {work.description}
+                  </p>
+
+                  {/* Button */}
                   <Link
-                    href={`${country === "india" ? "" : "/au"}${work.link || "/"
-                      }`}
+                    href={`${country === "india" ? "" : "/au"}${
+                      work.link || "/"
+                    }`}
+                    className="mt-4"
                   >
-                    <button className="bg-blue-400 text-black cursor-pointer py-2 px-6 rounded hover:bg-blue-500 transition duration-300">
-                      Explore Now
+                    <button className="w-full py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 shadow-md group-hover:shadow-lg transition-all">
+                      Explore Now 🚀
                     </button>
                   </Link>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setPage(i)}
+              animate={{
+                scale: i === page ? 1.4 : 1,
+                backgroundColor: i === page ? "#a855f7" : "#6b7280",
+              }}
+              className="w-3 h-3 rounded-full"
+              transition={{ type: "spring", stiffness: 300 }}
+            />
           ))}
-        </Slider>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

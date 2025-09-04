@@ -5,15 +5,16 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useCountry } from "../context/CountryContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { country, setCountry } = useCountry();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const services = [
     "Brand Marketing",
@@ -28,6 +29,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
       if (isOpen) setIsOpen(false);
     };
     window.addEventListener("scroll", handleScroll);
@@ -43,268 +45,251 @@ const Navbar = () => {
   };
 
   const basePath = country === "au" ? "/au" : "";
+  const makePath = (path) =>
+    path.startsWith("/") ? `${basePath}${path}` : `${basePath}/${path}`;
 
-  const makePath = (path) => {
-    if (path.startsWith("/")) return `${basePath}${path}`;
-    return `${basePath}/${path}`;
-  };
+  // Helper to check if link is active
+  const isActive = (href) => pathname === href || pathname.startsWith(href);
 
   return (
     <>
       {/* Main Navbar */}
-      <div className="flex justify-between items-center flex-wrap bg-[#141313]">
-        <div className="flex items-center w-2/5 gap-4 ml-[4%]">
-          <Link href={makePath("/")}>
-            <div className="flex items-center">
-              <img
-                src="/images/logo.webp"
-                alt="MVM logo"
-                className="w-24 h-24 object-contain"
-              />
-              <p className="text-[1.2rem] font-bold leading-tight text-white">
-                <span className=" text-white">MVM </span> <br />{" "}
-                <span>Business</span> <br />{" "}
-                <span className=" text-white">Services</span>
-              </p>
-            </div>
-          </Link>
-        </div>
+      <div
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#141313]/90 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="flex justify-between items-center flex-wrap py-2 px-6">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <Link href={makePath("/")}>
+              <div className="flex items-center">
+                <img
+                  src="/images/logo.webp"
+                  alt="MVM logo"
+                  className="w-16 h-16 object-contain"
+                />
+                <p className="text-lg font-bold text-white leading-tight ml-2">
+                  <span>MVM</span>
+                  <br />
+                  <span className="text-white">Business</span>
+                  <br />
+                  <span>Services</span>
+                </p>
+              </div>
+            </Link>
+          </div>
 
-        {/* Desktop Menu */}
-        <nav className="w-2/5 justify-end hidden md:flex">
-          <ul className="flex gap-5 text-[1.2rem] pr-[10%] text-white">
-            <li>
-              <Link href={makePath("/")} className="hover:text-orange-400">
-                HOME
-              </Link>
-            </li>
-            <li>
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center space-x-8 text-white text-lg">
+            {/* Home */}
+            <Link
+              href={makePath("/")}
+              className={`relative group ${
+                isActive(makePath("/")) ? "text-orange-400 font-semibold" : ""
+              }`}
+            >
+              <span className="hover:text-orange-400 transition">HOME</span>
+              <span
+                className={`absolute left-0 bottom-[-4px] h-[2px] bg-gradient-to-r from-orange-400 to-pink-500 transition-all duration-300 ${
+                  isActive(makePath("/")) ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
+            </Link>
+
+            {/* Services Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setShowServices(true)}
+              onMouseLeave={() => setShowServices(false)}
+            >
               <div
-                className="relative group"
-                onMouseEnter={() => setShowServices(true)}
-                onMouseLeave={() => setShowServices(false)}
+                className={`cursor-pointer hover:text-orange-400 ${
+                  isActive(makePath("/services"))
+                    ? "text-orange-400 font-semibold"
+                    : ""
+                }`}
+                onClick={() => router.push(makePath("/services"))}
               >
-                <div
-                  className="text-white font-medium hover:text-orange-400 cursor-pointer"
-                  onClick={() => router.push(makePath("/services"))}
-                >
-                  SERVICES
-                </div>
-
-                <div
-                  className={`absolute top-full left-0 mt-2 bg-violet-200 border border-gray-300 rounded-md shadow-lg z-50 w-64 transition-all duration-200 ${
-                    showServices
-                      ? "opacity-100 visible scale-100"
-                      : "opacity-0 invisible scale-95"
-                  }`}
-                >
-                  {services.map((service, index) => (
-                    <Link
-                      key={index}
-                      href={makePath(
+                SERVICES
+              </div>
+              <AnimatePresence>
+                {showServices && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute top-full mt-3 grid grid-cols-1 gap-2 
+                               bg-gradient-to-br from-[#1c1c1c] to-[#2a2a2a] 
+                               text-white border border-[#444] 
+                               rounded-lg shadow-[0_4px_15px_rgba(0,0,0,0.5)] 
+                               p-4 z-50 w-72 font-serif"
+                  >
+                    {services.map((service, index) => {
+                      const href = makePath(
                         `/services/${service
                           .toLowerCase()
                           .replace(/\s+/g, "-")}`
-                      )}
-                      className="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-blue-600 hover:text-white transition"
-                    >
-                      {service}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </li>
-            <li>
-              <Link href={makePath("/blog")} className="hover:text-orange-400">
-                BLOG
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={makePath("/#partners")}
-                className="hover:text-orange-400"
-              >
-                PARTNERS
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={makePath("/contact")}
-                className="hover:text-orange-400"
-              >
-                CONTACT
-              </Link>
-            </li>
-            <li className="relative">
-              <div className="flex items-center gap-2 text-white justify-center">
-                <button
-                  onClick={() => setDropdownOpen((prev) => !prev)}
-                  className="flex items-center gap-2 focus:outline-none"
-                >
-                  <img
-                    src={
-                      country === "au"
-                        ? "/images/australia.webp"
-                        : "/images/india.webp"
-                    }
-                    alt={country}
-                    className="w-6 h-6 rounded-full"
-                  />
-                  <span className="text-sm font-semibold">
-                    {country === "au" ? "AU" : "IN"}
-                  </span>
-                </button>
-
-                {dropdownOpen && (
-                  <ul className="absolute top-full mt-2   bg-[#222] border border-gray-600 rounded-md z-50 w-28 shadow">
-                    {[
-                      {
-                        code: "india",
-                        label: "IN",
-                        flag: "/images/india.webp",
-                      },
-                      {
-                        code: "au",
-                        label: "AU",
-                        flag: "/images/australia.webp",
-                      },
-                    ]
-                      .filter((c) => c.code !== country)
-                      .map((option) => (
-                        <li
-                          key={option.code}
-                          className="flex items-center gap-2 px-3 py-2 text-white text-sm hover:bg-gray-700 cursor-pointer"
-                          onClick={() =>
-                            handleCountryChange({
-                              target: { value: option.code },
-                            })
-                          }
+                      );
+                      return (
+                        <Link
+                          key={index}
+                          href={href}
+                          className={`px-4 py-2 rounded-md text-sm transition-all duration-300 ${
+                            isActive(href)
+                              ? "bg-gradient-to-r from-[#654321] to-[#a97449] text-yellow-100"
+                              : "hover:bg-gradient-to-r hover:from-[#654321] hover:to-[#a97449] hover:text-yellow-100"
+                          }`}
                         >
-                          <img
-                            src={option.flag}
-                            alt={option.label}
-                            className="w-5 h-5 rounded-full"
-                          />
-                          <span>{option.label}</span>
-                        </li>
-                      ))}
-                  </ul>
+                          {service}
+                        </Link>
+                      );
+                    })}
+                  </motion.div>
                 )}
-              </div>
-            </li>
-          </ul>
-        </nav>
+              </AnimatePresence>
+            </div>
 
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden mr-4" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+            {/* Other Links */}
+            {[
+              { label: "BLOG", path: "/blog" },
+              { label: "PARTNERS", path: "/#partners" },
+              { label: "CONTACT", path: "/contact" },
+            ].map((item, idx) => {
+              const href = makePath(item.path);
+              return (
+                <Link
+                  key={idx}
+                  href={href}
+                  className={`relative group ${
+                    isActive(href) ? "text-orange-400 font-semibold" : ""
+                  }`}
+                >
+                  <span className="hover:text-orange-400 transition">
+                    {item.label}
+                  </span>
+                  <span
+                    className={`absolute left-0 bottom-[-4px] h-[2px] bg-gradient-to-r from-orange-400 to-pink-500 transition-all duration-300 ${
+                      isActive(href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </Link>
+              );
+            })}
+
+            {/* Country Switch */}
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen((prev) => !prev)}
+                className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#222]/70 hover:bg-[#333]/70 transition"
+              >
+                <img
+                  src={
+                    country === "au"
+                      ? "/images/australia.webp"
+                      : "/images/india.webp"
+                  }
+                  alt={country}
+                  className="w-5 h-5 rounded-full"
+                />
+                <span className="text-sm">
+                  {country === "au" ? "AU" : "IN"}
+                </span>
+              </button>
+              {dropdownOpen && (
+                <div className="absolute top-full mt-2 bg-[#222] border border-gray-700 rounded-md shadow-lg w-28">
+                  {[
+                    { code: "india", label: "IN", flag: "/images/india.webp" },
+                    {
+                      code: "au",
+                      label: "AU",
+                      flag: "/images/australia.webp",
+                    },
+                  ]
+                    .filter((c) => c.code !== country)
+                    .map((option) => (
+                      <div
+                        key={option.code}
+                        className="flex items-center gap-2 px-3 py-2 hover:bg-gray-700 cursor-pointer"
+                        onClick={() =>
+                          handleCountryChange({
+                            target: { value: option.code },
+                          })
+                        }
+                      >
+                        <img
+                          src={option.flag}
+                          alt={option.label}
+                          className="w-5 h-5 rounded-full"
+                        />
+                        <span>{option.label}</span>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-black shadow-lg w-full absolute left-0 z-50">
-          <nav className="flex flex-col items-center py-6 space-y-4">
-            <ul className="text-white text-lg font-semibold space-y-4 w-full px-6">
-              <li>
-                <Link
-                  href={makePath("/")}
-                  onClick={handleLinkClick}
-                  className="hover:text-orange-400 block"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <div className="flex flex-col gap-2">
-                  <div className="flex justify-between items-center">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-[#141313] text-white absolute top-[70px] left-0 w-full z-40 shadow-lg"
+          >
+            <nav className="flex flex-col items-start py-6 px-8 space-y-4">
+              {["Home", "Services", "Blog", "Partners", "Contact"].map(
+                (label, idx) => {
+                  const href =
+                    label === "Home"
+                      ? makePath("/")
+                      : makePath(`/${label.toLowerCase()}`);
+                  return (
                     <Link
-                      href={makePath("/services")}
+                      key={idx}
+                      href={href}
                       onClick={handleLinkClick}
-                      className="hover:text-orange-400"
+                      className={`block text-lg ${
+                        isActive(href)
+                          ? "text-orange-400 font-semibold"
+                          : "hover:text-orange-400"
+                      }`}
                     >
-                      Services
+                      {label}
                     </Link>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setShowServices((prev) => !prev);
-                      }}
-                      aria-label="Toggle services dropdown"
-                    >
-                      <span
-                        className={`transform transition-transform duration-300 ${
-                          showServices ? "rotate-180" : "rotate-0"
-                        }`}
-                      >
-                        ▼
-                      </span>
-                    </button>
-                  </div>
-
-                  {showServices && (
-                    <ul className="pl-4 pt-2 space-y-2 text-sm text-white">
-                      {services.map((service, index) => (
-                        <li key={index}>
-                          <Link
-                            href={makePath(
-                              `/services/${service
-                                .toLowerCase()
-                                .replace(/\s+/g, "-")}`
-                            )}
-                            onClick={handleLinkClick}
-                            className="block hover:text-orange-400"
-                          >
-                            {service}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </li>
-              <li>
-                <Link
-                  href={makePath("/#partners")}
-                  onClick={handleLinkClick}
-                  className="hover:text-orange-400 block"
-                >
-                  Partners
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={makePath("/blog")}
-                  onClick={handleLinkClick}
-                  className="hover:text-orange-400 block"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={makePath("/contact")}
-                  onClick={handleLinkClick}
-                  className="hover:text-orange-400 block"
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li className="pt-2">
+                  );
+                }
+              )}
+              <div className="w-full">
+                <label className="text-sm text-gray-400">Select Country</label>
                 <select
                   value={country}
                   onChange={handleCountryChange}
-                  className="bg-[#222] border border-gray-600 text-white px-3 py-1 rounded focus:outline-none w-full"
+                  className="bg-[#222] border border-gray-600 text-white px-3 py-2 rounded w-full mt-2"
                 >
                   <option value="india">India</option>
                   <option value="au">Australia</option>
                 </select>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      )}
-      <hr />
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
