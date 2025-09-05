@@ -5,32 +5,32 @@ import Image from "next/image";
 
 const services = [
   {
-    icon: "/images/services/image1.png",
+    icon: "/images/icons/image1.png",
     title: "Performance Marketing",
     desc: "Results-driven ad strategies that convert.",
   },
   {
-    icon: "/images/services/image2.png",
+    icon: "/images/icons/image2.png",
     title: "SEO",
     desc: "Improve rankings and grow organic visibility.",
   },
   {
-    icon: "/images/services/image3.png",
+    icon: "/images/icons/image3.png",
     title: "Mobile Marketing",
     desc: "Reach your audience on-the-go with mobile-first campaigns.",
   },
   {
-    icon: "/images/services/image4.png",
+    icon: "/images/icons/image4.png",
     title: "Social Media Marketing",
     desc: "Build a brand presence across key social platforms.",
   },
   {
-    icon: "/images/services/image5.png",
+    icon: "/images/icons/image5.png",
     title: "Affiliate Marketing",
     desc: "Partner with performance-based affiliates for broader reach.",
   },
   {
-    icon: "/images/services/image6.png",
+    icon: "/images/icons/image6.png",
     title: "Content Marketing",
     desc: "Tell stories that engage, educate, and convert.",
   },
