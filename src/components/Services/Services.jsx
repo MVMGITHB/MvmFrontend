@@ -25,7 +25,7 @@ const services = [
     desc: "Build a brand presence across key social platforms.",
   },
   {
-    icon: "/images/5.png",
+    icon: "/images/p5.png",
     title: "Affiliate Marketing",
     desc: "Partner with performance-based affiliates for broader reach.",
   },
