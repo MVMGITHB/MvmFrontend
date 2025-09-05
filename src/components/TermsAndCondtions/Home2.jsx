@@ -2,16 +2,19 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative h-[100vh] flex items-center justify-center text-white overflow-hidden">
       {/* Background Image */}
+
       <div className="absolute inset-0 opacity-90 bg-black">
-        <img
-          src="/images/icons/hero.png" // 🔥 replace with your background image
+        <Image
+          src="/images/icons/hero.png"
           alt="Hero Background"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority // optional, ensures hero image loads quickly
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>

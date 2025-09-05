@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
@@ -90,13 +91,19 @@ export default function WhatWeDo() {
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-tr from-yellow-400 to-orange-500 transition duration-500" />
 
             {/* Icon */}
-            <motion.img
-              src={icon}
-              alt={title}
-              className="w-50 h-50 object-contain mb-6 mx-auto"
+            <motion.div
+              className="w-32 h-32 mb-6 mx-auto relative"
               whileHover={{ rotate: 10, scale: 1.1 }}
               transition={{ duration: 0.4 }}
-            />
+            >
+              <Image
+                src={icon}
+                alt={title}
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
 
             {/* Title */}
             <h3 className="text-xl font-bold text-center mb-3">{title}</h3>

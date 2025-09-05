@@ -49,7 +49,12 @@ const Navbar = () => {
     path.startsWith("/") ? `${basePath}${path}` : `${basePath}/${path}`;
 
   // Helper to check if link is active
-  const isActive = (href) => pathname === href || pathname.startsWith(href);
+  const isActive = (href) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
