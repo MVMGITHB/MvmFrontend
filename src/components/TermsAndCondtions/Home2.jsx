@@ -10,7 +10,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 opacity-90 bg-black">
         <Image
-          src="/images/icons/hero.png"
+          src="/images/hero.png"
           alt="Hero Background"
           fill
           className="object-cover"
