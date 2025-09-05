@@ -12,9 +12,12 @@ export default function Form() {
   return (
     <>
       <hr />
-      <div className="min-h-screen bg-[#0f0f11] text-white flex flex-col items-center justify-center p-8">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,0,0.08),transparent_70%)]" />
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 bg-[#0f0f11]">
+      <div className="relative min-h-screen bg-[#0f0f11] text-white flex flex-col items-center justify-center p-6 md:p-8 lg:p-12">
+        {/* Radial Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,0,0.08),transparent_70%)]" />
+
+        {/* Main Grid */}
+        <div className="relative max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 md:mt-24 lg:mt-32">
           {/* LEFT SIDE */}
           <motion.div
             variants={fadeUp}
@@ -87,7 +90,7 @@ export default function Form() {
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
-                allowFullScreen={true}
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

@@ -67,7 +67,6 @@ export default function HelpBrands() {
   return (
     <section className="relative bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-20 px-6">
       {/* Background Glow */}
-  c
 
       {/* Heading */}
       <motion.h2
