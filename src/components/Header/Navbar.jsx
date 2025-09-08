@@ -161,7 +161,7 @@ const Navbar = () => {
             {/* Other Links */}
             {[
               { label: "BLOG", path: "/blog" },
-              { label: "PARTNERS", path: "/#partners" },
+              { label: "PARTNERS", path: "/partners" },
               { label: "CONTACT", path: "/contact" },
             ].map((item, idx) => {
               const href = makePath(item.path);

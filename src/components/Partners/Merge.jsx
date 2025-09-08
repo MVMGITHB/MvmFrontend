@@ -4,7 +4,7 @@ import HeroSecond from "./HeroSecond";
 
 function Merge({ slides ,pros }) {
   return (
-    <div className="bg-[#141313]">
+    <div className="bg-[#141313] mt-[100px]">
       <hr />
       <div className="w-[90%] flex flex-col lg:flex-row mx-auto  justify-center items-center  px-1 lg:px-10 ">
         <div className="w-full lg:w-[60%]">

@@ -142,7 +142,7 @@ export default function PartnerCards() {
   );
 
   return (
-    <section className="relative bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-20 px-6 overflow-hidden">
+    <section className="relative mt-3 bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-20 px-6 overflow-hidden">
       {/* Section Heading */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
         {/* Left Column */}
