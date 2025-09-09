@@ -43,6 +43,12 @@ const services = [
     title: "Customer Funnel Strategy",
     highlight: "Conversion Optimization",
   },
+
+  {
+    icon: "/images/Icons/icon9.png",
+    title: "Omni Channel Marketing ",
+    highlight: "Unified messaging & Branding",
+  },
 ];
 
 const container = {

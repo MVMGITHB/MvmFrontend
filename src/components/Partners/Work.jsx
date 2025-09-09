@@ -127,7 +127,7 @@ export default function PartnerCards() {
   const itemsPerPage = 4;
   const totalPages = Math.ceil(workData.length / itemsPerPage);
 
-  // Auto change every 5s (pause on hover)
+  // Auto-slide every 5s (pause on hover)
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
@@ -142,23 +142,23 @@ export default function PartnerCards() {
   );
 
   return (
-    <section className="relative mt-3 bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-20 px-6 overflow-hidden">
+    <section className="relative  bg-gradient-to-br from-black via-[#0d0d0d] to-gray-900 text-white py-16 sm:py-40 px-4 sm:px-6 md:px-10 overflow-hidden">
       {/* Section Heading */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-12 mb-12">
         {/* Left Column */}
         <div className="md:w-1/2">
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 leading-snug">
             Brands That Trust MVM Business Services
           </h2>
 
-          <h3 className="text-lg font-semibold text-gray-200 mt-4">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-200 mt-4">
             Loans • Credit Cards • Insurance • E-Commerce • Automobiles
           </h3>
         </div>
 
         {/* Right Column */}
         <div className="md:w-1/2">
-          <p className="text-gray-300 leading-relaxed text-lg font-medium tracking-wide font-serif">
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-medium tracking-wide font-serif">
             We partner with{" "}
             <strong className="text-white font-semibold">
               India’s leading banks, global financial institutions, e-commerce
@@ -208,7 +208,7 @@ export default function PartnerCards() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -80 }}
             transition={{ duration: 0.6 }}
-            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
           >
             {currentItems.map((work, index) => (
               <motion.div
@@ -217,29 +217,28 @@ export default function PartnerCards() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -6 }}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-purple-500/40"
+                className="bg-white rounded-2xl shadow-lg sm:shadow-xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-purple-500/40"
               >
                 {/* Image */}
-                <div className="relative h-44 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden">
+                <div className="relative h-32 sm:h-40 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden">
                   <img
                     src={work.image}
                     alt={work.title}
-                    className="object-contain max-h-28 transition-transform duration-500 group-hover:scale-110"
+                    className="object-contain max-h-20 sm:max-h-28 transition-transform duration-500 group-hover:scale-110"
                   />
                   {work.tag && (
-                    <span className="absolute top-3 left-3 text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-md">
+                    <span className="absolute top-3 left-3 text-xs px-2 py-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-md">
                       {work.tag}
                     </span>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-30 transition"></div>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-grow p-5">
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                <div className="flex flex-col flex-grow p-4 sm:p-5">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                     {work.title}
                   </h3>
-                  <p className="text-gray-600 flex-grow line-clamp-3">
+                  <p className="text-gray-600 flex-grow line-clamp-3 text-sm sm:text-base">
                     {work.description}
                   </p>
 
@@ -250,7 +249,7 @@ export default function PartnerCards() {
                     }`}
                     className="mt-4"
                   >
-                    <button className="w-full py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 shadow-md group-hover:shadow-lg transition-all">
+                    <button className="w-full py-2 sm:py-2.5 rounded-lg font-semibold text-white text-sm sm:text-base bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 shadow-md group-hover:shadow-lg transition-all">
                       Explore Now 🚀
                     </button>
                   </Link>
