@@ -31,10 +31,10 @@ const industries = [
 
 export default function PartnersCarousel() {
   return (
-    <section className="bg-black text-white py-16">
+    <section className="bg-black text-white py-16 ">
       {/* Industries Section */}
-      <div className="max-w-6xl mx-auto text-center mb-14 px-6">
-        <h2 className="text-3xl md:text-6xl font-extrabold mb-4">
+      <div className="mx-auto text-center mb-14 pl-[10%] pr-[10%]">
+        <h2 className="text-2xl md:text-[65px] font-semibold mb-4">
           <span className="text-yellow-400">Proven</span> Results Across
           Industries
         </h2>
@@ -66,7 +66,7 @@ export default function PartnersCarousel() {
       </div>
 
       {/* Partners Carousel */}
-      <h3 className="text-center text-white text-4xl font-semibold mb-8">
+      <h3 className="text-center text-white text-2xl md:text-4xl font-semibold mb-8 px-2">
         Our Trusted Partners
       </h3>
       <div className="overflow-hidden relative bg-white py-4">

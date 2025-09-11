@@ -12,7 +12,7 @@ export default function Form() {
   return (
     <>
       <hr />
-      <div className="relative min-h-screen bg-[#0f0f11] text-white flex flex-col items-center justify-center p-6 md:p-8 lg:p-12">
+      <div className="relative min-h-screen bg-gradient-to-r from-[#0f172a] via-black-200 to-[#0f172a] text-white flex flex-col items-center justify-center p-6 md:p-8 lg:p-12">
         {/* Radial Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,0,0.08),transparent_70%)]" />
 

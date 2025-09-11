@@ -77,11 +77,9 @@ const Navbar = () => {
                   className="w-16 h-16 object-contain"
                 />
                 <p className="text-lg font-bold text-white leading-tight ml-2">
-                  <span>MVM</span>
-                  <br />
-                  <span className="text-white">Business</span>
-                  <br />
-                  <span>Services</span>
+                  {/* <span>MVM Business Services</span> */}
+                  
+                  
                 </p>
               </div>
             </Link>

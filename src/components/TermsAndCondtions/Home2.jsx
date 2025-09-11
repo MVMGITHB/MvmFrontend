@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="relative h-[100vh] flex items-center justify-center text-white overflow-hidden">
+    <section className="relative h-[70vh] md:h-[100vh]  flex items-center justify-center text-white overflow-x-hidden">
       {/* Background Image */}
 
       <div className="absolute inset-0 opacity-90 bg-black">
@@ -20,16 +20,16 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl">
+      <div className="relative z-10 text-center px-1 md:px-6 ">
         {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-extrabold leading-tight mx-w-2xl"
+          className="text-2xl md:text-[65px] font-bold leading-tight "
         >
           <span className="text-yellow-300">360°</span> Digital Marketing <br />
-          Solutions Backed by <br />
+          Solutions Backed by 
           <span className="text-yellow-300"> 11+ Years</span> <br />
           of Experience
         </motion.h1>
@@ -39,15 +39,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-6 text-lg md:text-xl text-gray-200 leading-relaxed max-w-md mx-auto text-center"
+          className="mt-6 text-xl md:text-[25px] text-gray-200 font-medium leading-relaxed  mx-auto text-center"
         >
           We help brands{" "}
-          <span className="text-yellow-300 font-medium">grow</span> with{" "}
+          <span className="text-yellow-300 font-medium">grow</span> with performance marketing,
+          <br />
           <span className="text-yellow-300 font-medium">
-            performance marketing, SEO, social media management, mobile ad,
-            content creation
-          </span>{" "}
-          & more.
+             SEO, social media management, mobile ad,
+            content 
+          </span>{" "} 
+          <br />
+          <span> creation & more.</span>
+        
         </motion.p>
 
         {/* CTA Button */}
@@ -58,7 +61,7 @@ export default function Hero() {
           className="mt-10"
         >
           <Link href="/contact">
-            <button className="px-8 py-4 bg-transparent border border-yellow-400 text-white font-semibold rounded-lg shadow-lg hover:bg-yellow-400 hover:text-black transition-all duration-300">
+            <button className="px-8 py-4 bg-transparent cursor-pointer border border-yellow-400 text-white font-semibold rounded-lg shadow-lg hover:bg-yellow-400 hover:text-black transition-all duration-300">
               Get a free strategy consultation
             </button>
           </Link>

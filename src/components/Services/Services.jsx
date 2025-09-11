@@ -62,7 +62,7 @@ export default function WhatWeDo() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-16"
+        className="text-4xl md:text-5xl font-semibold pl-[10%] text-left mb-4"
       >
         What <span className="text-yellow-400">We Do?</span>
       </motion.h2>
@@ -85,14 +85,14 @@ export default function WhatWeDo() {
               boxShadow: "0px 8px 30px rgba(255,165,0,0.3)",
             }}
             transition={{ type: "spring", stiffness: 150, damping: 12 }}
-            className="relative bg-white text-black rounded-xl p-6 shadow-lg flex flex-col justify-between group overflow-hidden"
+            className="relative h-[442px]  bg-[#EEF4FF]  text-black rounded-xl p-6 shadow-lg flex flex-col justify-between group overflow-hidden"
           >
             {/* Top floating glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-tr from-yellow-400 to-orange-500 transition duration-500" />
+            <div className="absolute  inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-tr from-yellow-400 to-orange-500 transition duration-500" />
 
             {/* Icon */}
             <motion.div
-              className="w-32 h-32 mb-6 mx-auto relative"
+              className="w-[300px] h-[300px] mb-6 mx-auto relative "
               whileHover={{ rotate: 10, scale: 1.1 }}
               transition={{ duration: 0.4 }}
             >
@@ -102,19 +102,20 @@ export default function WhatWeDo() {
                 fill
                 className="object-contain"
                 priority
+                
               />
             </motion.div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold text-center mb-3">{title}</h3>
-            <p className="text-gray-600 text-center mb-6">{desc}</p>
+            <h3 className="text-[25px] text-black font-bold text-center mb-3 font-family">{title}</h3>
+            <p className="text-gray-600 text-[20px] text-center mb-6 font-family">{desc}</p>
 
             {/* Buttons */}
             <div className="flex justify-center gap-4">
-              <button className="px-6 py-4 text-sm font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition">
+              <button className="font-family px-6 py-2 text-sm font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition">
                 Request
               </button>
-              <button className="px-6 py-4 text-sm font-semibold border border-gray-400 rounded-md hover:border-black transition">
+              <button className="font-family px-6 py-2 text-sm font-semibold bg-white rounded-xl hover:border-black transition">
                 More Details
               </button>
             </div>
