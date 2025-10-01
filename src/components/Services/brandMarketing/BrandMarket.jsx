@@ -3,132 +3,97 @@ import React from "react";
 const BrandMarket = () => {
   return (
     <div>
-      <div className="relative w-full mt-10">
-        {/* Background image */}
+      {/* Hero Section */}
+      <div className="relative w-full mt-10 h-[500px] md:h-[500px] lg:h-[500px]">
         <img
           src="/images/Services/backgroundImage.png"
           alt="background"
-          className="absolute inset-0 w-full h-[500px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-
-        {/* Foreground content */}
-        <div className="relative w-full mt-10">
-          {/* Background image */}
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center h-full gap-6 md:gap-10 px-4 md:px-20">
           <img
-            src="/images/Services/backgroundImage.png"
-            alt="background"
-            className="absolute inset-0 w-full h-[500px] object-cover"
+            src="/images/Services/servicesImage.png"
+            alt="overlay"
+            className="w-[250px] md:w-[300px] lg:w-[600px] object-contain"
           />
-
-          {/* Foreground content */}
-          <div className="relative z-10 flex items-center justify-center h-[500px] gap-[10px]">
-            {/* Foreground image (200x200) */}
-            <img
-              src="/images/Services/servicesImage.png"
-              alt="overlay"
-              className="w-auto h-full object-contain"
-            />
-
-            {/* Text */}
-            <h1 className="text-white text-7xl font-bold mt-14 leading-none mb-4">
-              Brand <br /> <span style={{ color: "#F9E143" }}>Marketing</span>
-            </h1>
-          </div>
+          <h1 className="text-white text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold leading-tight text-center md:text-left mt-8 md:mt-0">
+            Brand <br /> <span style={{ color: "#F9E143" }}>Marketing</span>
+          </h1>
         </div>
       </div>
-      <div className="flex justify-around items-center">
-        <div className="text-4xl mt-8">
-          <h1>
+
+      {/* Section 1 */}
+      <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-12 px-4 md:px-20">
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-semibold">
             What is <span style={{ color: "#F9E143" }}>Brand Marketing?</span>
-          </h1>
-          <p className="text-[20px] mt-2">
-            Brand Marketing refers to a{" "}
-            <span style={{ color: "#F9E143" }}>long-term</span> plan for{" "}
-            <span style={{ color: "#F9E143" }}>
-              building,
-              <br /> establishing{" "}
-            </span>{" "}
-            and <span style={{ color: "#F9E143" }}>promoting brands.</span> Its
-            end goal is to <br /> establish a{" "}
-            <span style={{ color: "#F9E143" }}>positive brand image</span> and
-            build <span style={{ color: "#F9E143" }}>brand equity.</span>
+          </h2>
+          <p className="text-base md:text-lg mt-2">
+            Brand Marketing refers to a <span style={{ color: "#F9E143" }}>long-term</span> plan for{" "}
+            <span style={{ color: "#F9E143" }}>building, establishing</span> and <span style={{ color: "#F9E143" }}>promoting brands.</span>{" "}
+            Its end goal is to establish a <span style={{ color: "#F9E143" }}>positive brand image</span> and build <span style={{ color: "#F9E143" }}>brand equity.</span>
           </p>
         </div>
         <img
           src="/images/Services/brandix_1.png"
           alt="brandImage"
-          className="w-auto h-full"
+          className="w-full md:w-auto max-w-sm md:max-w-md"
         />
       </div>
 
-      <div className="flex justify-around items-center">
+      {/* Section 2 */}
+      <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-12 px-4 md:px-20">
         <img
           src="/images/Services/brandix_2.png"
-          alt="image mageBrandix"
-          className="w-auto h-full"
+          alt="brandImage"
+          className="w-full md:w-auto max-w-sm md:max-w-md"
         />
-        <div>
-          <p className="text-4xl">
-            What are some <span style={{ color: "#F9E143" }}>tools</span> for{" "}
-            <br />
-            Brand Marketing?
+        <div className="text-center md:text-left">
+          <p className="text-3xl md:text-4xl">
+            What are some <span style={{ color: "#F9E143" }}>tools</span> for Brand Marketing?
           </p>
-          <p className="mt-[10px]">
-            Branding tools help to establish and maintain a{" "}
-            <span style={{ color: "#F9E143" }}>
-              cohesive <br /> brand identity.
-            </span>{" "}
-            Some examples include: <br />     {" "}
-            <span style={{ color: "#F9E143" }}>Ahrefs :</span> Search Engine
-            Marketing <br />     
-            <span style={{ color: "#F9E143" }}>Brandwatch:</span> Brand
-            monitoring <br />     
-            <span style={{ color: "#F9E143" }}> Hootsuite:</span> social media
-            management
+          <p className="mt-3 text-base md:text-lg">
+            Branding tools help to establish and maintain a <span style={{ color: "#F9E143" }}>cohesive brand identity.</span>{" "}
+            Some examples include: <br />
+            <span style={{ color: "#F9E143" }}>Ahrefs:</span> Search Engine Marketing <br />
+            <span style={{ color: "#F9E143" }}>Brandwatch:</span> Brand monitoring <br />
+            <span style={{ color: "#F9E143" }}>Hootsuite:</span> Social media management
           </p>
         </div>
       </div>
 
-      <div className="flex justify-around items-center">
-        <div>
-          <p className="text-4xl">
-            Types of{" "}
-            <span style={{ color: "#F9E143" }}>campaign categories</span>
+      {/* Section 3 */}
+      <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-12 px-4 md:px-20">
+        <div className="text-center md:text-left">
+          <p className="text-3xl md:text-4xl">
+            Types of <span style={{ color: "#F9E143" }}>campaign categories</span>
           </p>
-          <p className="mt-[10px]">
-            Campaign categories are generally on the basis of industry. <br />{" "}
-            Some common examples include –{" "}
-            <span style={{ color: "#F9E143" }}>
-              BFSI, real estate,
-              <br /> automobiles, education{" "}
-            </span>
-            and <span style={{ color: "#F9E143" }}>e-commerce.</span>
+          <p className="mt-3 text-base md:text-lg">
+            Campaign categories are generally on the basis of industry. <br />
+            Some common examples include – <span style={{ color: "#F9E143" }}>BFSI, real estate, automobiles, education</span> and <span style={{ color: "#F9E143" }}>e-commerce.</span>
           </p>
         </div>
         <img
           src="/images/Services/brandix_3.png"
-          alt="image mageBrandix"
-          className="w-auto h-full"
+          alt="brandImage"
+          className="w-full md:w-auto max-w-sm md:max-w-md"
         />
       </div>
 
-      <div className="flex justify-around items-center">
+      {/* Section 4 */}
+      <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-12 px-4 md:px-20">
         <img
           src="/images/Services/brandix_4.png"
-          alt="image mageBrandix"
-          className="w-auto h-full"
+          alt="brandImage"
+          className="w-full md:w-auto max-w-sm md:max-w-md"
         />
-        <div>
-          <p className="text-4xl">
+        <div className="text-center md:text-left">
+          <p className="text-3xl md:text-4xl">
             <span style={{ color: "#F9E143" }}>Impact</span> of Brand Marketing?
           </p>
-          <p className="mt-[10px]">
-            <span style={{ color: "#F9E143" }}>Successful</span> brand marketing{" "}
-            <span style={{ color: "#F9E143" }}>drives</span> overall{" "}
-            <span style={{ color: "#F9E143" }}>revenue growth</span> <br /> and
-            builds a <span style={{ color: "#F9E143" }}>loyal community.</span>{" "}
-            It also gives you a <br />{" "}
-            <span style={{ color: "#F9E143" }}>competitive advantage.</span>  
+          <p className="mt-3 text-base md:text-lg">
+            <span style={{ color: "#F9E143" }}>Successful</span> brand marketing <span style={{ color: "#F9E143" }}>drives</span> overall <span style={{ color: "#F9E143" }}>revenue growth</span> and builds a <span style={{ color: "#F9E143" }}>loyal community.</span> <br />
+            It also gives you a <span style={{ color: "#F9E143" }}>competitive advantage.</span>
           </p>
         </div>
       </div>
