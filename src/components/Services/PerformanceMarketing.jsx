@@ -1,6 +1,8 @@
 import React from 'react'
 import MainServices from './MainServices';
 
+import PerformanceMarket from './performanceMarketing/PerformanceMarket';
+
 function PerformanceMarketing() {
   const data = {
     title: "Performance Marketing",
@@ -25,7 +27,8 @@ function PerformanceMarketing() {
     ],
   };
 
-  return <MainServices data={data} />
+  //<MainServices data={data} />
+  return <PerformanceMarket /> 
 }
 
 export default PerformanceMarketing

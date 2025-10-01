@@ -1,5 +1,7 @@
 import MainServices from "./MainServices";
 
+import BrandMarket from "./brandMarketing/BrandMarket";
+
 function BrandMarketing() {
   const data = {
     title: "Brand Marketing",
@@ -7,15 +9,14 @@ function BrandMarketing() {
     points: [
       {
         heading: "What is Brand Marketing?",
-        description:
-          `Brand Marketing refers to a long term plan for building, establishing and promoting brands. Its end goal is to establish a positive brand image and build brand equity. 
+        description: `Brand Marketing refers to a long term plan for building, establishing and promoting brands. Its end goal is to establish a positive brand image and build brand equity. 
 `,
       },
       {
         heading: "Tools used for Brand Marketing",
-        description:`Branding tools help to establish and maintain a cohesive brand identity. They often provide useful insights that improve overall brand performance. Some examples include:
+        description: `Branding tools help to establish and maintain a cohesive brand identity. They often provide useful insights that improve overall brand performance. Some examples include:
 Ahrefs , search engine marketing
-`
+`,
       },
       {
         heading: "Types of Campaign Categories",
@@ -30,7 +31,8 @@ Ahrefs , search engine marketing
     ],
   };
 
-  return <MainServices data={data} />;
+  // <MainServices data={data} />;
+  return(<BrandMarket />), <BrandMarket />;
 }
 
 export default BrandMarketing;
