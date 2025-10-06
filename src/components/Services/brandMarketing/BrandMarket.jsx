@@ -4,66 +4,75 @@ const BrandMarket = () => {
   const sections = [
     {
       id: 1,
-      title: "What is Brand Marketing?",
+      title: <>What is <span style={{color:"#F9E143"}}>Brand Marketing?</span></>,
+      image: "/images/Services/brandix_1.png",
       content: (
         <>
           Brand marketing refers to a{" "}
           <span style={{ color: "#F9E143" }}>long-term</span> strategy for{" "}
-          <span style={{ color: "#F9E143" }}>building, establishing</span>, and{" "}
-          <span style={{ color: "#F9E143" }}>promoting brands</span>. Its goal is
-          to create a <span style={{ color: "#F9E143" }}>positive brand image</span> and build{" "}
-          <span style={{ color: "#F9E143" }}>brand equity</span>.
+          <span style={{ color: "#F9E143" }}>
+            building, <br /> establishing
+          </span>
+          , and <span style={{ color: "#F9E143" }}>promoting brands</span>. Its
+          goal is to <br /> create a{" "}
+          <span style={{ color: "#F9E143" }}>positive brand image</span> and
+          build <span style={{ color: "#F9E143" }}>brand equity</span>.
         </>
       ),
-      image: "/images/Services/brandix_1.png",
       alt: "Illustration describing what brand marketing means",
     },
     {
       id: 2,
-      title: "Top Tools for Brand Marketing",
+      title: (
+        <>
+          What are some <span style={{ color: "#F9E143" }}>tools</span> for{" "}
+          <br />
+          Brand Marketing?
+        </>
+      ),
+      image: "/images/Services/brandix_2.png",
       content: (
         <>
           Branding tools help maintain a{" "}
           <span style={{ color: "#F9E143" }}>consistent brand identity</span>.
           Common examples include: <br />
-          <strong>Ahrefs:</strong> Search engine marketing <br />
-          <strong>Brandwatch:</strong> Brand monitoring <br />
-          <strong>Hootsuite:</strong> Social media management
+          <span style={{color:"#F9E143"}}>Ahrefs:</span> Search engine marketing <br />
+          <span style={{color:"#F9E143"}}>Brandwatch:</span> Brand monitoring <br />
+          <span style={{color:"#F9E143"}}>Hootsuite:</span> Social media management
         </>
       ),
-      image: "/images/Services/brandix_2.png",
       alt: "Brand marketing tools like Ahrefs, Brandwatch, and Hootsuite",
     },
     {
       id: 3,
-      title: "Campaign Categories in Brand Marketing",
+      title: <><span style={{color:"#F9E143"}}>Campaign Categories</span> in Brand Marketing</>,
+      image: "/images/Services/brandix_3.png",
       content: (
         <>
-          Brand marketing campaigns often vary by industry. Common categories
+          Brand marketing campaigns often vary by industry. <br /> Common categories
           include{" "}
           <span style={{ color: "#F9E143" }}>
-            BFSI, real estate, automobiles, education
+            BFSI, real estate,<br /> automobiles, education
           </span>{" "}
           and <span style={{ color: "#F9E143" }}>e-commerce</span>.
         </>
       ),
-      image: "/images/Services/brandix_3.png",
       alt: "Various campaign categories like real estate, BFSI, and education",
     },
     {
       id: 4,
-      title: "Impact of Brand Marketing",
+      title: <><span style={{color:"#F9E143"}}>Impact</span> of Brand Marketing?</>,
+      image: "/images/Services/brandix_4.png",
       content: (
         <>
           <span style={{ color: "#F9E143" }}>Successful</span> brand marketing{" "}
-          <span style={{ color: "#F9E143" }}>drives</span> business growth,
-          builds a{" "}
-          <span style={{ color: "#F9E143" }}>loyal community</span>, and creates
-          a <span style={{ color: "#F9E143" }}>competitive advantage</span> in
-          the market.
+          <span style={{ color: "#F9E143" }}>drives</span> business growth,<br />
+          builds a <span style={{ color: "#F9E143" }}>loyal community</span>,
+          and creates a{" "} <br />
+          <span style={{ color: "#F9E143" }}>competitive advantage</span> in the
+          market.
         </>
       ),
-      image: "/images/Services/brandix_4.png",
       alt: "Graph showing the positive impact of brand marketing on business growth",
     },
   ];
@@ -95,7 +104,7 @@ const BrandMarket = () => {
         <section
           key={section.id}
           className={`flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-16 px-4 md:px-20 ${
-            index % 2 !== 0 ? "md:flex-row-reverse" : ""
+            index % 2 !== 1 ? "md:flex-row-reverse" : ""
           }`}
         >
           <img

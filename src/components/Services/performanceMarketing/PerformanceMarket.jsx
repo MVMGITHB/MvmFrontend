@@ -4,14 +4,23 @@ const PerformanceMarket = () => {
   const sections = [
     {
       id: 1,
-      title: "What is Performance Marketing?",
+      title: (
+        <>
+          "What is{" "}
+          <span style={{ color: "#F9E143" }}>Performance Marketing?</span>
+        </>
+      ),
       content: (
         <>
           Performance marketing is a{" "}
-          <span style={{ color: "#F9E143" }}>data-driven strategy</span> where
+          <span style={{ color: "#F9E143" }}>data-driven strategy</span> where{" "}
+          <br />
           advertisers pay only when measurable actions — like{" "}
-          <span style={{ color: "#F9E143" }}>clicks, leads,</span> or{" "}
-          <span style={{ color: "#F9E143" }}>sales</span> — are{" "}
+          <span style={{ color: "#F9E143" }}>
+            clicks,
+            <br /> leads,
+          </span>{" "}
+          or <span style={{ color: "#F9E143" }}>sales</span> — are{" "}
           <span style={{ color: "#F9E143" }}>successfully completed</span>.
         </>
       ),
@@ -20,16 +29,20 @@ const PerformanceMarket = () => {
     },
     {
       id: 2,
-      title: "Top Tools for Performance Marketing",
+      title: (
+        <>
+          What are some <span style={{color:"#F9E143"}}>tools</span> for <br />
+          Performance Marketing?
+        </>
+      ),
       content: (
         <>
-          Common performance marketing tools include{" "}
           <span style={{ color: "#F9E143" }}>
-            Email, SMS, Social Media, Google Ads, Appsflyer, WhatsApp,
+            Email, SMS, Social Media, Google Ads, Appsflyer,
+            <br /> WhatsApp,
           </span>{" "}
-          and <span style={{ color: "#F9E143" }}>RCS</span>. These platforms help
-          track, analyze, and improve{" "}
-          <span style={{ color: "#F9E143" }}>campaign effectiveness</span>.
+          and <span style={{ color: "#F9E143" }}>RCS</span>are some common tools
+          for <br /> performance marketing.
         </>
       ),
       image: "/images/Services/performanceMarket/performancebrand_2.png",
@@ -37,16 +50,21 @@ const PerformanceMarket = () => {
     },
     {
       id: 3,
-      title: "Campaign Categories in Performance Marketing",
+      title: (
+        <>
+          Types of <span style={{ color: "#F9E143" }}>campaign categories</span>
+        </>
+      ),
       content: (
         <>
-          Performance marketing campaigns are typically based on specific
-          metrics like: <br />
-          CPC (<span style={{ color: "#F9E143" }}>Cost Per Click</span>), CPL (
-          <span style={{ color: "#F9E143" }}>Cost Per Lead</span>), CPI (
-          <span style={{ color: "#F9E143" }}>Cost Per Install</span>), CPV (
-          <span style={{ color: "#F9E143" }}>Cost Per Visit</span>), and CPM (
-          <span style={{ color: "#F9E143" }}>Cost Per Impression</span>).
+          Campaign categories for performance marketing include <br /> CPC [
+          <span style={{ color: "#F9E143" }}>cost per click</span>], CPL [{" "}
+          <span style={{ color: "#F9E143" }}>cost per lead</span>], CPI [{" "}
+          <span style={{ color: "#F9E143" }}>
+            cost per <br /> install
+          </span>
+          ], CPV [ <span style={{ color: "#F9E143" }}>cost per visit</span>] and
+          CPM [ <span style={{ color: "#F9E143" }}>cost per impression</span>].
         </>
       ),
       image: "/images/Services/performanceMarket/performancebrand_3.png",
@@ -54,16 +72,19 @@ const PerformanceMarket = () => {
     },
     {
       id: 4,
-      title: "Impact of Performance Marketing",
+      title: (
+        <>
+          <span style={{ color: "#F9E143" }}>Impact</span> of Performance
+          Marketing.
+        </>
+      ),
       content: (
         <>
-          <span style={{ color: "#F9E143" }}>Effective</span> performance
-          marketing provides{" "}
+          Effective performance marketing gives businesses <br />{" "}
           <span style={{ color: "#F9E143" }}>measurable</span> and{" "}
-          <span style={{ color: "#F9E143" }}>cost-effective</span> results,
-          helping businesses maximize{" "}
-          <span style={{ color: "#F9E143" }}>ROI</span> and achieve{" "}
-          <span style={{ color: "#F9E143" }}>scalable growth</span>.
+          <span style={{ color: "#F9E143" }}>effective results.</span>It boosts
+          the overall <br />{" "}
+          <span style={{ color: "#F9E143" }}>return on investment</span> [ROI].
         </>
       ),
       image: "/images/Services/performanceMarket/performancebrand_4.png",
@@ -80,7 +101,7 @@ const PerformanceMarket = () => {
           alt="Abstract performance marketing background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center h-full gap-6 md:gap-10 px-4 md:px-20">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center h-full gap-5 md:gap-10 px-4 md:px-20">
           <img
             src="/images/Services/performanceMarket/performancemarkethero.png"
             alt="Performance marketing concept illustration"
@@ -99,7 +120,7 @@ const PerformanceMarket = () => {
         <section
           key={section.id}
           className={`flex flex-col md:flex-row justify-around items-center gap-6 md:gap-20 my-16 px-4 md:px-20 ${
-            index % 2 !== 0 ? "md:flex-row-reverse" : ""
+            index % 2 !== 1 ? "md:flex-row-reverse" : ""
           }`}
         >
           <img
